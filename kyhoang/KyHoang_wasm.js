@@ -361,8 +361,8 @@ function createWasm() {
   };
   function receiveInstance(instance, module) {
     wasmExports = instance.exports;
-    wasmTable = wasmExports["Mi"];
-    addOnInit(wasmExports["Hi"]);
+    wasmTable = wasmExports["Ni"];
+    addOnInit(wasmExports["Ii"]);
     removeRunDependency("wasm-instantiate");
     return wasmExports;
   }
@@ -384,14 +384,17 @@ function createWasm() {
 var tempDouble;
 var tempI64;
 var ASM_CONSTS = {
-  281216: function _() {
+  281248: function _() {
     if (navigator.userAgent.toLowerCase().indexOf("chrome") > -1) {
       console.log("%c    %c    Made with Defold    %c    %c    https://www.defold.com", "background: #fd6623; padding:5px 0; border: 5px;", "background: #272c31; color: #fafafa; padding:5px 0;", "background: #39a3e4; padding:5px 0;", "background: #ffffff; color: #000000; padding:5px 0;");
     } else {
       console.log("Made with Defold -=[ https://www.defold.com ]=-");
     }
   },
-  281644: function _($0) {
+  281676: function _() {
+    return stringToNewUTF8(Intl.DateTimeFormat().resolvedOptions().timeZone);
+  },
+  281754: function _($0) {
     var jsResult;
     var isSuccess = 1;
     try {
@@ -405,13 +408,13 @@ var ASM_CONSTS = {
     var stringOnWasmHeap = stringToNewUTF8(jsResult);
     return stringOnWasmHeap;
   },
-  281912: function _() {
+  282022: function _() {
     document.removeEventListener("click", Module.__defold_interaction_listener);
     document.removeEventListener("keyup", Module.__defold_interaction_listener);
     document.removeEventListener("touchend", Module.__defold_interaction_listener);
     Module.__defold_interaction_listener = undefined;
   },
-  282200: function _() {
+  282310: function _() {
     Module.__defold_interaction_listener = function () {
       _dmScript_RunInteractionCallback();
     };
@@ -5527,6 +5530,9 @@ var runEmAsmFunction = function runEmAsmFunction(code, sigPtr, argbuf) {
 var _emscripten_asm_const_int = function _emscripten_asm_const_int(code, sigPtr, argbuf) {
   return runEmAsmFunction(code, sigPtr, argbuf);
 };
+var _emscripten_asm_const_ptr = function _emscripten_asm_const_ptr(code, sigPtr, argbuf) {
+  return runEmAsmFunction(code, sigPtr, argbuf);
+};
 var _emscripten_set_main_loop_timing = function _emscripten_set_main_loop_timing(mode, value) {
   Browser.mainLoop.timingMode = mode;
   Browser.mainLoop.timingValue = value;
@@ -10249,90 +10255,91 @@ for (var i = 0; i < 288; ++i) {
   miniTempWebGLIntBuffers[i] = miniTempWebGLIntBuffersStorage.subarray(0, i + 1);
 }
 var wasmImports = {
-  Gi: _JS_TextInput_clearFocus,
-  Fi: _JS_TextInput_create,
-  Ei: _JS_TextInput_focus,
-  Di: _JS_TextInput_getText,
-  Ci: _JS_TextInput_initialize,
-  Bi: _JS_TextInput_remove,
-  Ai: _JS_TextInput_setAutoCapitalize,
-  zi: _JS_TextInput_setHint,
-  yi: _JS_TextInput_setHintTextColor,
-  xi: _JS_TextInput_setKeyboardType,
-  wi: _JS_TextInput_setMaxLength,
-  vi: _JS_TextInput_setPosition,
-  ui: _JS_TextInput_setReturnKeyType,
-  ti: _JS_TextInput_setSize,
-  si: _JS_TextInput_setText,
-  ri: _JS_TextInput_setTextColor,
-  qi: _JS_TextInput_setTextSize,
-  pi: _JS_TextInput_setVisible,
-  oi: _JS_WebView_continueOpen,
-  ni: _JS_WebView_create,
+  Hi: _JS_TextInput_clearFocus,
+  Gi: _JS_TextInput_create,
+  Fi: _JS_TextInput_focus,
+  Ei: _JS_TextInput_getText,
+  Di: _JS_TextInput_initialize,
+  Ci: _JS_TextInput_remove,
+  Bi: _JS_TextInput_setAutoCapitalize,
+  Ai: _JS_TextInput_setHint,
+  zi: _JS_TextInput_setHintTextColor,
+  yi: _JS_TextInput_setKeyboardType,
+  xi: _JS_TextInput_setMaxLength,
+  wi: _JS_TextInput_setPosition,
+  vi: _JS_TextInput_setReturnKeyType,
+  ui: _JS_TextInput_setSize,
+  ti: _JS_TextInput_setText,
+  si: _JS_TextInput_setTextColor,
+  ri: _JS_TextInput_setTextSize,
+  qi: _JS_TextInput_setVisible,
+  pi: _JS_WebView_continueOpen,
+  oi: _JS_WebView_create,
   H: _JS_WebView_destroy,
-  mi: _JS_WebView_eval,
-  li: _JS_WebView_finalize,
-  ki: _JS_WebView_initialize,
-  ji: _JS_WebView_isVisible,
-  ii: _JS_WebView_open,
-  hi: _JS_WebView_openRaw,
-  gi: _JS_WebView_setPosition,
+  ni: _JS_WebView_eval,
+  mi: _JS_WebView_finalize,
+  li: _JS_WebView_initialize,
+  ki: _JS_WebView_isVisible,
+  ji: _JS_WebView_open,
+  ii: _JS_WebView_openRaw,
+  hi: _JS_WebView_setPosition,
   aa: _JS_WebView_setVisible,
-  fi: _ShareFile,
-  ei: _ShareImage,
-  di: _ShareText,
+  gi: _ShareFile,
+  fi: _ShareImage,
+  ei: _ShareText,
   b: ___assert_fail,
-  ci: ___syscall__newselect,
-  bi: ___syscall_accept4,
-  ai: ___syscall_bind,
-  $h: ___syscall_chdir,
-  _h: ___syscall_connect,
-  Zh: ___syscall_dup3,
+  di: ___syscall__newselect,
+  ci: ___syscall_accept4,
+  bi: ___syscall_bind,
+  ai: ___syscall_chdir,
+  $h: ___syscall_connect,
+  _h: ___syscall_dup3,
   f: ___syscall_fcntl64,
-  Yh: ___syscall_getcwd,
-  Xh: ___syscall_getdents64,
-  Wh: ___syscall_getpeername,
-  Vh: ___syscall_getsockname,
+  Zh: ___syscall_getcwd,
+  Yh: ___syscall_getdents64,
+  Xh: ___syscall_getpeername,
+  Wh: ___syscall_getsockname,
   $: ___syscall_getsockopt,
-  Uh: ___syscall_ioctl,
-  Th: ___syscall_listen,
-  Sh: ___syscall_lstat64,
-  Rh: ___syscall_mkdirat,
-  Qh: ___syscall_newfstatat,
+  Vh: ___syscall_ioctl,
+  Uh: ___syscall_listen,
+  Th: ___syscall_lstat64,
+  Sh: ___syscall_mkdirat,
+  Rh: ___syscall_newfstatat,
   _: ___syscall_openat,
-  Ph: ___syscall_poll,
+  Qh: ___syscall_poll,
   xa: ___syscall_readlinkat,
-  Oh: ___syscall_recvfrom,
-  Nh: ___syscall_renameat,
+  Ph: ___syscall_recvfrom,
+  Oh: ___syscall_renameat,
   wa: ___syscall_rmdir,
-  Mh: ___syscall_sendto,
+  Nh: ___syscall_sendto,
   va: ___syscall_socket,
-  Lh: ___syscall_stat64,
-  Kh: ___syscall_symlink,
+  Mh: ___syscall_stat64,
+  Lh: ___syscall_symlink,
   Z: ___syscall_unlinkat,
-  Jh: ___syscall_utimensat,
-  Gh: __emscripten_get_now_is_monotonic,
-  Fh: __emscripten_lookup_name,
-  Eh: __emscripten_system,
-  Dh: __emscripten_throw_longjmp,
+  Kh: ___syscall_utimensat,
+  Hh: __emscripten_get_now_is_monotonic,
+  Gh: __emscripten_lookup_name,
+  Fh: __emscripten_system,
+  Eh: __emscripten_throw_longjmp,
   Da: __gmtime_js,
   Ca: __localtime_js,
   Ba: __mktime_js,
-  Ch: __tzset_js,
+  Dh: __tzset_js,
   G: _abort,
-  Bh: _dmDeviceJSFreeBufferSlots,
-  Ah: _dmDeviceJSOpen,
-  zh: _dmDeviceJSQueue,
-  yh: _dmGetDeviceSampleRate,
-  xh: _dmIAPFBBuy,
-  wh: _dmIAPFBList,
-  vh: _dmScriptHttpRequestAsync,
-  uh: _dmSysGetApplicationPath,
-  th: _dmSysGetUserAgent,
-  sh: _dmSysGetUserPersistentDataRoot,
-  rh: _dmSysGetUserPreferredLanguage,
-  qh: _dmSysOpenURL,
+  Ch: _dmDeviceJSFreeBufferSlots,
+  Bh: _dmDeviceJSOpen,
+  Ah: _dmDeviceJSQueue,
+  zh: _dmGetDeviceSampleRate,
+  yh: _dmIAPFBBuy,
+  xh: _dmIAPFBList,
+  wh: _dmScriptHttpRequestAsync,
+  vh: _dmSysGetApplicationPath,
+  uh: _dmSysGetUserAgent,
+  th: _dmSysGetUserPersistentDataRoot,
+  sh: _dmSysGetUserPreferredLanguage,
+  rh: _dmSysOpenURL,
   Q: _emscripten_asm_const_int,
+  qh: _emscripten_asm_const_ptr,
   ph: _emscripten_cancel_main_loop,
   F: _emscripten_date_now,
   oh: _emscripten_get_heap_max,
@@ -10623,8 +10630,8 @@ var wasmImports = {
   cc: _emscripten_websocket_set_onerror_callback_on_thread,
   bc: _emscripten_websocket_set_onmessage_callback_on_thread,
   ac: _emscripten_websocket_set_onopen_callback_on_thread,
-  Ih: _environ_get,
-  Hh: _environ_sizes_get,
+  Jh: _environ_get,
+  Ih: _environ_sizes_get,
   W: _exit,
   v: _fd_close,
   ua: _fd_read,
@@ -10770,58 +10777,58 @@ var wasmImports = {
 };
 var wasmExports = createWasm();
 var _wasm_call_ctors = function ___wasm_call_ctors() {
-  return (_wasm_call_ctors = wasmExports["Hi"])();
+  return (_wasm_call_ctors = wasmExports["Ii"])();
 };
 var _dmExportedSymbols = Module["_dmExportedSymbols"] = function () {
-  return (_dmExportedSymbols = Module["_dmExportedSymbols"] = wasmExports["Ii"])();
+  return (_dmExportedSymbols = Module["_dmExportedSymbols"] = wasmExports["Ji"])();
 };
 var _main = Module["_main"] = function (a0, a1) {
-  return (_main = Module["_main"] = wasmExports["Ji"])(a0, a1);
+  return (_main = Module["_main"] = wasmExports["Ki"])(a0, a1);
 };
 var _malloc = Module["_malloc"] = function (a0) {
-  return (_malloc = Module["_malloc"] = wasmExports["Ki"])(a0);
+  return (_malloc = Module["_malloc"] = wasmExports["Li"])(a0);
 };
 var _free = Module["_free"] = function (a0) {
-  return (_free = Module["_free"] = wasmExports["Li"])(a0);
+  return (_free = Module["_free"] = wasmExports["Mi"])(a0);
 };
 var _htonl2 = function _htonl(a0) {
-  return (_htonl2 = wasmExports["Ni"])(a0);
+  return (_htonl2 = wasmExports["Oi"])(a0);
 };
 var _dmScript_Html5ReportOperationSuccess = Module["_dmScript_Html5ReportOperationSuccess"] = function (a0) {
-  return (_dmScript_Html5ReportOperationSuccess = Module["_dmScript_Html5ReportOperationSuccess"] = wasmExports["Oi"])(a0);
+  return (_dmScript_Html5ReportOperationSuccess = Module["_dmScript_Html5ReportOperationSuccess"] = wasmExports["Pi"])(a0);
 };
 var _dmScript_RunInteractionCallback = Module["_dmScript_RunInteractionCallback"] = function () {
-  return (_dmScript_RunInteractionCallback = Module["_dmScript_RunInteractionCallback"] = wasmExports["Pi"])();
+  return (_dmScript_RunInteractionCallback = Module["_dmScript_RunInteractionCallback"] = wasmExports["Qi"])();
 };
 var _setTempRet = function setTempRet0(a0) {
-  return (_setTempRet = wasmExports["Qi"])(a0);
+  return (_setTempRet = wasmExports["Ri"])(a0);
 };
 var _htons2 = function _htons(a0) {
-  return (_htons2 = wasmExports["Ri"])(a0);
+  return (_htons2 = wasmExports["Si"])(a0);
 };
 var _ntohs2 = function _ntohs(a0) {
-  return (_ntohs2 = wasmExports["Si"])(a0);
+  return (_ntohs2 = wasmExports["Ti"])(a0);
 };
 var _JSWriteDump = Module["_JSWriteDump"] = function (a0) {
-  return (_JSWriteDump = Module["_JSWriteDump"] = wasmExports["Ti"])(a0);
+  return (_JSWriteDump = Module["_JSWriteDump"] = wasmExports["Ui"])(a0);
 };
 var _setThrew2 = function _setThrew(a0, a1) {
-  return (_setThrew2 = wasmExports["Ui"])(a0, a1);
+  return (_setThrew2 = wasmExports["Vi"])(a0, a1);
 };
 var _stackSave = function stackSave() {
-  return (_stackSave = wasmExports["Vi"])();
+  return (_stackSave = wasmExports["Wi"])();
 };
 var _stackRestore = function stackRestore(a0) {
-  return (_stackRestore = wasmExports["Wi"])(a0);
+  return (_stackRestore = wasmExports["Xi"])(a0);
 };
 var _stackAlloc = function stackAlloc(a0) {
-  return (_stackAlloc = wasmExports["Xi"])(a0);
+  return (_stackAlloc = wasmExports["Yi"])(a0);
 };
 var dynCall_jii = Module["dynCall_jii"] = function (a0, a1, a2) {
-  return (dynCall_jii = Module["dynCall_jii"] = wasmExports["Yi"])(a0, a1, a2);
+  return (dynCall_jii = Module["dynCall_jii"] = wasmExports["Zi"])(a0, a1, a2);
 };
 var dynCall_ji = Module["dynCall_ji"] = function (a0, a1) {
-  return (dynCall_ji = Module["dynCall_ji"] = wasmExports["Zi"])(a0, a1);
+  return (dynCall_ji = Module["dynCall_ji"] = wasmExports["_i"])(a0, a1);
 };
 function invoke_vii(index, a1, a2) {
   var sp = _stackSave();
