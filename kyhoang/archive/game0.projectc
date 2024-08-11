@@ -1,12 +1,11 @@
 [project]
 title = Kỳ Hoàng
-version = 1.2
+version = 1.2.1
 write_log = 0
 compress_archive = 1
 publisher = unnamed
 developer = unnamed
 bundle_resources = /bundle
-full_version = 1.2.0
 environment = prod
 title_as_file_name = KyHoang
 
@@ -130,7 +129,7 @@ launch_screen = /builtins/manifests/ios/LaunchScreen.storyboardc
 pre_renderered_icons = 0
 bundle_identifier = com.chungxa.kyhoang.cotuongcoup
 bundle_name = Kỳ Hoàng
-bundle_version = 5
+bundle_version = 9
 infoplist = /manifests/ios/Info.plist
 privacymanifest = /builtins/manifests/ios/PrivacyInfo.xcprivacy
 default_language = en,vi
@@ -146,7 +145,7 @@ push_icon_small = /assets/notification-icon.png
 push_icon_large = /assets/notification-icon-large.png
 push_field_title = title
 push_field_text = body
-version_code = 17
+version_code = 18
 minimum_sdk_version = 19
 target_sdk_version = 34
 package = com.chungxa.kyhoang.cotuongcoup
