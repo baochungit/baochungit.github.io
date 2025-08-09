@@ -1,6 +1,6 @@
 [project]
 title = Kỳ Hoàng
-version = 1.2.8
+version = 1.2.9
 write_log = 0
 compress_archive = 1
 publisher = unnamed
@@ -145,7 +145,7 @@ push_icon_small = /assets/notification-icon.png
 push_icon_large = /assets/notification-icon-large.png
 push_field_title = title
 push_field_text = body
-version_code = 20
+version_code = 22
 minimum_sdk_version = 21
 target_sdk_version = 36
 package = com.chungxa.kyhoang.cotuongcoup
